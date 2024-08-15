@@ -1,9 +1,6 @@
-# The-ToDo_List
-To-Do List Web App  A straightforward web app to help users keep track of their tasks.This project allows users to add, edit, and delete tasks, as well as mark them as completed. Built using the MERN stack (MongoDB, Express.js, React, and Node.js),it offers a user-friendly way to manage your to-dos.
-
-
-
 # To-Do List Web App
+
+A straightforward web app to help users keep track of their tasks. This project allows users to add, edit, and delete tasks, as well as mark them as completed. Built using the MERN stack (MongoDB, Express.js, React, and Node.js), it offers a user-friendly way to manage your to-dos.
 
 ## Project Setup
 
@@ -30,3 +27,4 @@ To-Do List Web App  A straightforward web app to help users keep track of their 
 
 7. **Test**:
    - Tested your API endpoints using tools like Postman or your browser to ensure everything is working correctly.
+
