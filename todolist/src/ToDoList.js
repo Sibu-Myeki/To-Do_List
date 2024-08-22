@@ -1,19 +1,19 @@
 import React from 'react';
-import TODOItem from './TODOItem'; // Create this component separately
-import './TODOList.css'; // If you have custom styles
+import TodoItem from './TodoItem';
 
-const TODOList = ({ todos, onDelete }) => {
+const TodoList = ({ todos, onToggle, onDelete }) => {
   return (
     <ul className="todo-list">
       {todos.map(todo => (
-        <TODOItem
+        <TodoItem
           key={todo.id}
           todo={todo}
-          onDelete={onDelete}
+          onToggle={() => onToggle(todo.id)}
+          onDelete={() => onDelete(todo.id)}
         />
       ))}
     </ul>
   );
 };
 
-export default TODOList;
+export default TodoList;

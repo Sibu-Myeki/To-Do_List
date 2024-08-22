@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import TodoList from './components/TodoList';
+import TodoItem from './components/TodoItem';
+import AddTodo from './components/AddTodo';
+import LoginForm from './components/LoginForm';
+import './App.css'; // Create this CSS file for app-wide styling
 
-function App() {
+const App = () => {
+  const [todos, setTodos] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Function to handle adding new todo
+  const addTodo = (todo) => {
+    setTodos([...todos, todo]);
+  };
+
+  // Function to handle login status
+  const handleLogin = (status) => {
+    setIsLoggedIn(status);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {!isLoggedIn ? (
+        <LoginForm onLogin={handleLogin} />
+      ) : (
+        <>
+          <AddTodo onAdd={addTodo} />
+          <TodoList todos={todos} />
+        </>
+      )}
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
