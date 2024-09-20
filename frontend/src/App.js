@@ -1,20 +1,26 @@
-
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Dashboard from './components/pages/Dashboard'; // Update path as necessary
+import Signup from './components/signup/Signup';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from '../src/pages/home/Home';
-import Header from '../src/components/header/Header';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Router>
-      <Header />
-      <Routes>
-          <Route path="/" element={<Home />} />
-      </Routes>
-      </Router>
-    </div>
+    <Router>
+      <div>
+        <header>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/dashboard">Dashboard</Link>
+          </nav>
+        </header>
+        <Routes>
+          <Route path="/" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
