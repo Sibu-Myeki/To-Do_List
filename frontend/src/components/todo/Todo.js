@@ -45,20 +45,6 @@ const ToDo = () => {
     setTasks(updatedTasks);
   };
 
-  const setTaskPriority = (index, priority) => {
-    const updatedTasks = tasks.map((task, taskIndex) =>
-      taskIndex === index ? { ...task, priority } : task
-    );
-    setTasks(updatedTasks);
-  };
-
-  const setTaskDueDate = (index, dueDate) => {
-    const updatedTasks = tasks.map((task, taskIndex) =>
-      taskIndex === index ? { ...task, dueDate } : task
-    );
-    setTasks(updatedTasks);
-  };
-
   const setTaskCategory = (index, category) => {
     const updatedTasks = tasks.map((task, taskIndex) =>
       taskIndex === index ? { ...task, category } : task
@@ -89,13 +75,6 @@ const ToDo = () => {
           placeholder="Add a new task"
         />
         
-        <label htmlFor="prioritySelect">Priority:</label>
-        <select id="prioritySelect" onChange={(e) => setNewPriority(e.target.value)} value={newPriority}>
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
-        </select>
-        
         <label htmlFor="dueDateInput">Due Date:</label>
         <input
           id="dueDateInput"
@@ -107,14 +86,7 @@ const ToDo = () => {
         <button onClick={addTask}>Add Task</button>
       </div>
 
-      <div className="sort-group">
-        <select onChange={(e) => setSortBy(e.target.value)} value={sortBy}>
-          <option value="priority">Priority</option>
-          <option value="dueDate">Due Date</option>
-          <option value="status">Status</option>
-        </select>
-      </div>
-
+      <h3>Tasks Added:</h3>
       <ul className="task-list">
         {sortedTasks.map((task, index) => (
           <li key={index} className={`task ${task.status}`}>
@@ -136,15 +108,17 @@ const ToDo = () => {
             ) : (
               <span>{task.text} - {task.priority} - {task.dueDate} - {task.status}</span>
             )}
-            <button onClick={() => deleteTask(index)}>Delete</button>
-            <button onClick={() => pauseTask(index)}>Pause</button>
-            <button onClick={() => finishTask(index)}>Finish</button>
-            {editIndex !== index && (
-              <button onClick={() => {
-                setEditIndex(index);
-                setEditText(task.text);
-              }}>Edit</button>
-            )}
+            <div className="button-group">
+              <button onClick={() => deleteTask(index)}>Delete</button>
+              <button onClick={() => pauseTask(index)}>Pause</button>
+              <button onClick={() => finishTask(index)}>Finish</button>
+              {editIndex !== index && (
+                <button onClick={() => {
+                  setEditIndex(index);
+                  setEditText(task.text);
+                }}>Edit</button>
+              )}
+            </div>
             <select onChange={(e) => setTaskCategory(index, e.target.value)} value={task.category}>
               {categories.map(category => (
                 <option key={category} value={category}>{category}</option>

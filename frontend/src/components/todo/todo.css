@@ -35,6 +35,12 @@ button:hover {
   background-color: #218838; /* Darker green on hover */
 }
 
+.button-group {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-top: 10px; /* Space above the button group */
+}
+
 .sort-group {
   margin-top: 20px; /* Space above sorting options */
 }
