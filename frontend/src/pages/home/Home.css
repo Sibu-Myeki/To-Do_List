@@ -1,0 +1,57 @@
+/* Home.css */
+.home {
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+h1 {
+    color: #333; /* Dark text for contrast */
+    font-size: 2.5em; /* Larger font size for emphasis */
+}
+
+.home-content {
+    display: flex; /* Use flexbox to arrange items in a row */
+    justify-content: space-between; /* Space between text and image */
+    align-items: center; /* Center items vertically */
+    margin-top: 20px; /* Space above the content */
+}
+
+.text-content {
+    flex: 1; /* Take up remaining space */
+    text-align: left; /* Align text to the left */
+    margin-right: 20px; /* Space between text and image */
+}
+
+.home-image {
+    width: 100%; /* Responsive image */
+    max-width: 400px; /* Set a max width for the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+h2 {
+    color: #2c3e50; /* A soft blue color */
+}
+
+p {
+    margin: 20px 0; /* Space around the paragraph */
+    font-size: 18px; /* Readable font size */
+}
+
+.signup-button {
+    padding: 10px 20px; /* Button padding */
+    font-size: 16px; /* Font size */
+    background-color: #3498db; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.signup-button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+footer {
+    margin-top: 20px; /* Space above footer */
+}
