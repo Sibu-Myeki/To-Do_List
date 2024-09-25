@@ -1,16 +1,19 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from '../src/pages/home/Home';
-import Header from '../src/components/header/Header';
+import Home from './pages/home/Home'; // Corrected import
+import Dashboard from './pages/dashboardPage/DashboardPage'; // Corrected import
+import Header from './components/header/Header';
 
 function App() {
   return (
     <div className="App">
       <Router>
-      <Header />
-      <Routes>
+        <Header />
+        <Routes>
           <Route path="/" element={<Home />} />
-      </Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/* Add your blogs route here if needed */}
+        </Routes>
       </Router>
     </div>
   );
