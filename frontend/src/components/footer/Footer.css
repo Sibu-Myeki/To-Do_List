@@ -1,0 +1,13 @@
+/* Footer.css */
+.footer {
+    margin-top: 150px; /* Space above footer */
+    padding: 10px; /* Padding inside the footer */
+    background-color: #f1f1f1; /* Light background color */
+    text-align: center; /* Center text */
+    width: 100%; /* Full width */
+}
+
+.footer p {
+    margin: 5px 0; /* Space around the paragraphs */
+    color: #555; /* Grey text color */
+}

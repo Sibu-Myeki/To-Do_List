@@ -2,12 +2,17 @@
 .home {
     text-align: center;
     padding: 40px;
-    background-color: #f9f9f9; /* Light background for contrast */
+    background-color: #f9f9f9;
+    display: flex;               
+    flex-direction: column;      
+    align-items: center;         
+    justify-content: center;    
 }
 
 h1 {
     color: #333; /* Dark text for contrast */
     font-size: 2.5em; /* Larger font size for emphasis */
+    text-align: center;
 }
 
 .home-content {
@@ -15,6 +20,7 @@ h1 {
     justify-content: space-between; /* Space between text and image */
     align-items: center; /* Center items vertically */
     margin-top: 20px; /* Space above the content */
+    width: 100%; /* Take full width of the container */
 }
 
 .text-content {
@@ -24,9 +30,10 @@ h1 {
 }
 
 .home-image {
-    width: 100%; /* Responsive image */
-    max-width: 400px; /* Set a max width for the image */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; 
+    max-width: 400px; /* Set back to a smaller max width */
+    height: auto; 
+    border-radius: 10px; /* Rounded corners */
 }
 
 h2 {
@@ -41,7 +48,7 @@ p {
 .signup-button {
     padding: 10px 20px; /* Button padding */
     font-size: 16px; /* Font size */
-    background-color: #3498db; /* Button color */
+    background-color: darkolivegreen; /* Button color */
     color: white; /* Button text color */
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
@@ -49,7 +56,7 @@ p {
 }
 
 .signup-button:hover {
-    background-color: #2980b9; /* Darker shade on hover */
+    background-color: #29b959; /* Darker shade on hover */
 }
 
 footer {
