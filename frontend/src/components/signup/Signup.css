@@ -1,39 +1,44 @@
 /* Signup.css */
+
 .signup-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .signup-form label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  
-  .signup-form input {
-    padding: 8px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .signup-form button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .signup-form button:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 350px; /* Slightly smaller max width for the form */
+  margin: 1.5rem auto; /* Reduced margin for the form */
+  padding: 1.5rem; /* Reduced padding around the form */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Softer shadow effect */
+  background-color: #f9f9f9; /* Light background color */
+}
+
+.signup-form h2 {
+  text-align: center; /* Center the header */
+  color: #344039; /* Header color to match the nav */
+}
+
+.signup-form label {
+  display: block; /* Display labels as block */
+  margin: 0.5rem 0 0.25rem; /* Reduced spacing around labels */
+}
+
+.signup-form input {
+  width: 100%; /* Full width for inputs */
+  padding: 0.4rem; /* Reduced padding inside inputs */
+  border: 1px solid #ccc; /* Border for inputs */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 0.9rem; /* Slightly smaller font size for inputs */
+}
+
+.signup-form button {
+  width: 100%; /* Full width for button */
+  padding: 0.5rem; /* Reduced padding inside button */
+  background-color: #344039; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 0.9rem; /* Slightly smaller font size for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 0.75rem; /* Reduced margin above button */
+}
+
+.signup-form button:hover {
+  background-color: #ffc107; /* Button hover color */
+}

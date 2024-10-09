@@ -17,7 +17,7 @@ function Signup() {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // You can add form submission logic here
-  };
+  }; 
 
   return (
     <form className="signup-form" onSubmit={handleSubmit}>
