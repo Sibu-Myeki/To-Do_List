@@ -8,12 +8,9 @@ const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
 
 // Connect to MongoDB
-mongoose.connect(process.env.DB_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('Connected to MongoDB'))
-.catch((err) => console.error('Could not connect to MongoDB...', err));
+mongoose.connect(process.env.DB_URL)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('Could not connect to MongoDB...', err));
 
 // Define a Mongoose schema and model for a to-do item
 const todoSchema = new mongoose.Schema({
@@ -23,7 +20,12 @@ const todoSchema = new mongoose.Schema({
 
 const Todo = mongoose.model('Todo', todoSchema);
 
-// Define routes
+// Add a root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the To-Do List API!'); // A simple response
+});
+
+// Define routes for todos
 app.get('/todos', async (req, res) => {
   const todos = await Todo.find();
   res.json(todos);
@@ -47,4 +49,3 @@ const port = process.env.PORT || 3001; // Change port to 3001 or another availab
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-
