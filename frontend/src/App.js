@@ -1,10 +1,10 @@
 import React from 'react'; // Import React
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/home/Home'; // Corrected import
-import Dashboard from './pages/dashboardPage/DashboardPage'; // Corrected import
-import Header from './components/header/Header';
-import Signup from './components/signup/Signup'; // Import the Signup component
+import './App.css'; // Import main CSS file
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import routing components
+import Home from './pages/home/Home'; // Import Home component
+import Dashboard from './pages/dashboardPage/DashboardPage'; // Import Dashboard component
+import Header from './components/header/Header'; // Import Header component
+import Signup from './components/signup/Signup'; // Import Signup component
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/signup" element={<Signup />} /> {/* Add route for Signup */}
+          <Route path="/" element={<Home />} /> {/* Home route */}
+          <Route path="/dashboard" element={<Dashboard />} /> {/* Dashboard route */}
+          <Route path="/signup" element={<Signup />} /> {/* Signup route */}
           {/* Add your blogs route here if needed */}
         </Routes>
       </Router>

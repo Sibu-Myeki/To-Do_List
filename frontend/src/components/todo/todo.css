@@ -56,3 +56,11 @@ button:hover {
   border: 1px solid #ddd; /* Light border for tasks */
   border-radius: 5px; /* Rounded corners for tasks */
 }
+
+/* style for the task-analytics */
+.task-analytics {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}

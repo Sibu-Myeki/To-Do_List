@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import './Todo.css';  // Import your custom styles
+import './Todo.css'; // Import your custom styles
 
 const ToDo = () => {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState('');
-  const [newPriority, setNewPriority] = useState('Medium');
-  const [newDueDate, setNewDueDate] = useState('');
-  const [sortBy, setSortBy] = useState('priority');
-  const [editIndex, setEditIndex] = useState(null);
-  const [editText, setEditText] = useState('');
-  const [categories] = useState(['Work', 'Personal', 'Other']);  // Static categories for simplicity
+  const [tasks, setTasks] = useState([]); // State for tasks
+  const [newTask, setNewTask] = useState(''); // State for new task input
+  const [newPriority, setNewPriority] = useState('Medium'); // State for new task priority
+  const [newDueDate, setNewDueDate] = useState(''); // State for due date
+  const [sortBy, setSortBy] = useState('priority'); // State for sorting
+  const [editIndex, setEditIndex] = useState(null); // State for edit index
+  const [editText, setEditText] = useState(''); // State for edited text
+  const [categories] = useState(['Work', 'Personal', 'Other']); // Static categories
 
   const addTask = () => {
     if (newTask.trim()) {
@@ -20,36 +20,36 @@ const ToDo = () => {
         dueDate: newDueDate,
         category: 'Personal'
       }]);
-      setNewTask('');
-      setNewPriority('Medium');
-      setNewDueDate('');
+      setNewTask(''); // Reset input field
+      setNewPriority('Medium'); // Reset priority
+      setNewDueDate(''); // Reset due date
     }
   };
 
   const deleteTask = (index) => {
     const updatedTasks = tasks.filter((_, taskIndex) => taskIndex !== index);
-    setTasks(updatedTasks);
+    setTasks(updatedTasks); // Update task list
   };
 
   const pauseTask = (index) => {
     const updatedTasks = tasks.map((task, taskIndex) =>
       taskIndex === index ? { ...task, status: 'paused' } : task
     );
-    setTasks(updatedTasks);
+    setTasks(updatedTasks); // Update task status to paused
   };
 
   const finishTask = (index) => {
     const updatedTasks = tasks.map((task, taskIndex) =>
       taskIndex === index ? { ...task, status: 'finished' } : task
     );
-    setTasks(updatedTasks);
+    setTasks(updatedTasks); // Update task status to finished
   };
 
   const setTaskCategory = (index, category) => {
     const updatedTasks = tasks.map((task, taskIndex) =>
       taskIndex === index ? { ...task, category } : task
     );
-    setTasks(updatedTasks);
+    setTasks(updatedTasks); // Update task category
   };
 
   const sortedTasks = [...tasks].sort((a, b) => {
@@ -131,4 +131,4 @@ const ToDo = () => {
   );
 };
 
-export default ToDo;
+export default ToDo; // Export ToDo component
