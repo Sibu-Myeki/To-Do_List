@@ -18,7 +18,7 @@ const Home = () => {
             </header>
             <div className="home-content">
                 <div className="text-content">
-                    <h2>Welcome to FunDaily_DoTasks! 🌟</h2>
+                    <h2>Welcome to FunDaily_DoTasks! <span role="img" aria-label="Star emoji">🌟</span></h2>
                     <p>Your go-to app for organizing your daily activities. Transform the way you tackle your tasks with a seamless experience—effortlessly create, manage, track, and achieve your goals!</p>
                     <button className="signup-button" onClick={handleSignup}>Sign Up</button> {/* Attach the click handler */}
                 </div>

@@ -1,0 +1,21 @@
+.dashboard-container {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Space between left and right sections */
+    padding: 20px; /* Add some padding around the container */
+  }
+  
+  .left-section {
+    flex: 1; /* Take up 1 part of the space */
+    margin-right: 20px; /* Add space between the sections */
+    background-color: #f0f0f0; /* Optional: Add a background color */
+    padding: 20px; /* Add some padding */
+    border-radius: 8px; /* Optional: Rounded corners */
+  }
+  
+  .right-section {
+    flex: 1; /* Take up 1 part of the space */
+    background-color: #ffffff; /* Optional: Background color for the ToDo section */
+    padding: 20px; /* Add some padding */
+    border-radius: 8px; /* Optional: Rounded corners */
+  }
+  

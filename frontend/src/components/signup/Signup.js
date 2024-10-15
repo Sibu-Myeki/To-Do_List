@@ -1,6 +1,5 @@
-// Signup.js
-import React, { useState } from 'react';
-import './Signup.css';
+import React, { useState } from 'react'; // Import React
+import './Signup.css'; // Import CSS file for Signup
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -16,8 +15,11 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // You can add form submission logic here
-  }; 
+    // Store the username in local storage (or a more secure method if needed)
+    localStorage.setItem('username', formData.name);
+    // Redirect to dashboard
+    window.location.href = '/dashboard';
+  };
 
   return (
     <form className="signup-form" onSubmit={handleSubmit}>

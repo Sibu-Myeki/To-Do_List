@@ -1,20 +1,21 @@
 import React from 'react';
 import './RecentActivities.css';
 
-const RecentActivities = ({ activities }) => {
+const RecentActivities = () => {
+  // Example data for recent activities
+  const activities = [
+    "Completed task 'Design landing page'",
+    "Started task 'Implement API integration'",
+    "Marked task 'Fix bugs' as completed",
+  ];
+
   return (
     <div className="recent-activities-container">
       <h2>Recent Activities</h2>
-      <ul className="recent-activities-list">
-        {activities.length > 0 ? (
-          activities.map((activity, index) => (
-            <li key={index} className="activity-item">
-              {activity}
-            </li>
-          ))
-        ) : (
-          <li>No recent activities</li>
-        )}
+      <ul>
+        {activities.map((activity, index) => (
+          <li key={index}>{activity}</li>
+        ))}
       </ul>
     </div>
   );

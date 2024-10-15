@@ -10,7 +10,7 @@ const quotes = [
 
 const MotivationalQuotes = () => {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-  
+
   return (
     <div className="motivational-quotes-container">
       <h2>Motivational Quote</h2>

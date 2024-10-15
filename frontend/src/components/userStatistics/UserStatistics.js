@@ -17,3 +17,4 @@ const UserStatistics = ({ stats }) => {
 };
 
 export default UserStatistics;
+
