@@ -1,20 +1,30 @@
-import React from 'react'; // Import React
-import './DashboardPage.css'; // Ensure the correct CSS file is imported
-import ToDo from '../../components/todo/Todo'; // Import the ToDo component
-import MotivationalQuotes from '../../components/motivationalQuotes/MotivationalQuotes'; // Import Motivational Quotes
+import React, { useState } from 'react';
+import './DashboardPage.css';
+import ToDo from '../../components/todo/Todo';
+import MotivationalQuotes from '../../components/motivationalQuotes/MotivationalQuotes';
 
 const DashboardPage = () => {
-  // Get the username from local storage
   const username = localStorage.getItem('username') || 'User';
+
+  // State for the dashboard
+  const [mainGoal, setMainGoal] = useState('finish coursera'); // Set a default main goal
+  const [tasksAdded, setTasksAdded] = useState([]); // State to hold tasks added
+
+  // Function to update dashboard data
+  const updateDashboard = (goal, routine, tasks) => {
+    setMainGoal(goal);
+    setTasksAdded(tasks); // Update tasks added
+  };
 
   return (
     <div className="dashboard-container">
       <div className="left-section">
-        <h2>{username}</h2>
-        <MotivationalQuotes /> {/* Include the Motivational Quotes component */}
+        <h2>Good Morning, {username}!</h2>
+        <p><em>Success is not the key to happiness. Happiness is the key to success.</em></p>
       </div>
+
       <div className="right-section">
-        <ToDo /> {/* Include the ToDo component here */}
+        <ToDo updateDashboard={updateDashboard} />
       </div>
     </div>
   );

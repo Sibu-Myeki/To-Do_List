@@ -1,21 +1,39 @@
 .dashboard-container {
-    display: flex; /* Use Flexbox for layout */
-    justify-content: space-between; /* Space between left and right sections */
-    padding: 20px; /* Add some padding around the container */
-  }
-  
-  .left-section {
-    flex: 1; /* Take up 1 part of the space */
-    margin-right: 20px; /* Add space between the sections */
-    background-color: #f0f0f0; /* Optional: Add a background color */
-    padding: 20px; /* Add some padding */
-    border-radius: 8px; /* Optional: Rounded corners */
-  }
-  
-  .right-section {
-    flex: 1; /* Take up 1 part of the space */
-    background-color: #ffffff; /* Optional: Background color for the ToDo section */
-    padding: 20px; /* Add some padding */
-    border-radius: 8px; /* Optional: Rounded corners */
-  }
-  
+  display: flex; /* Use Flexbox for layout */
+  justify-content: space-between; /* Space between left and right sections */
+  padding: 20px; /* Add some padding around the container */
+}
+
+.left-section {
+  flex: 1; /* Take up 1 part of the space */
+  margin-right: 20px; /* Add space between the sections */
+  background-color: #f0f0f0; /* Optional: Add a background color */
+  padding: 20px; /* Add some padding */
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+
+.right-section {
+  flex: 1; /* Take up 1 part of the space */
+  background-color: #ffffff; /* Optional: Background color for the ToDo section */
+  padding: 20px; /* Add some padding */
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+
+.quote-section,
+.daily-goal,
+.quick-stats,
+.upcoming-tasks,
+.progress,
+.fun-fact {
+  margin-bottom: 20px; /* Space between sections */
+  background: #fff; /* White background for each section */
+  padding: 10px; /* Inner padding */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.progress-bar {
+  height: 10px; /* Height of the progress bar */
+  background-color: #4caf50; /* Green color for progress */
+  border-radius: 5px; /* Rounded edges */
+}
