@@ -14,12 +14,12 @@ const Home = () => {
     return (
         <div className="home">
             <header>
-                <h1>FunDaily_DoTasks</h1>
+                <h1>Goal_smashing</h1>
             </header>
             <div className="home-content">
                 <div className="text-content">
-                    <h2>Welcome to FunDaily_DoTasks! <span role="img" aria-label="Star emoji">🌟</span></h2>
-                    <p>Your go-to app for organizing your daily activities. Transform the way you tackle your tasks with a seamless experience—effortlessly create, manage, track, and achieve your goals!</p>
+                    <h2>Welcome to Goal_smashing! <span role="img" aria-label="Star emoji">🌟</span></h2>
+                    <p>Your ultimate app for breaking down big goals into manageable daily tasks. Effortlessly create, track, and achieve your goals using the power of your inner voice and thinking language!</p>
                     <button className="signup-button" onClick={handleSignup}>Sign Up</button> {/* Attach the click handler */}
                 </div>
                 <img src={pic1} alt="Productivity" className="home-image" />

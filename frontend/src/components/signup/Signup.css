@@ -11,7 +11,7 @@
 
 .signup-form h2 {
   text-align: center; /* Center the header */
-  color: #344039; /* Header color to match the nav */
+  color: #364034; /* Header color to match the nav */
 }
 
 .signup-form label {
@@ -30,7 +30,7 @@
 .signup-form button {
   width: 100%; /* Full width for button */
   padding: 0.5rem; /* Reduced padding inside button */
-  background-color: #344039; /* Button background color */
+  background-color: #6EC207; /* Button background color */
   color: white; /* Button text color */
   border: none; /* Remove default border */
   border-radius: 5px; /* Rounded corners */
