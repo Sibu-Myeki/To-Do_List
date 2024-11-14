@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './DashboardPage.css';
 import ToDo from '../../components/todo/Todo';
 import MotivationalQuotes from '../../components/motivationalQuotes/MotivationalQuotes';
-import BarChart from '../../components/barChart/BarChart'; // Import BarChart component
+import LineChart from '../../components/lineChart/LineChart'; // Correctly import LineChart
 
 const DashboardPage = () => {
   const username = localStorage.getItem('username') || 'User';
@@ -11,10 +11,10 @@ const DashboardPage = () => {
   const [mainGoal, setMainGoal] = useState('finish coursera'); // Set a default main goal
   const [tasksAdded, setTasksAdded] = useState([]); // State to hold tasks added
 
-  // Sample progress data for the bar chart
+  // Sample progress data for the line chart
   const progressData = {
-    labels: ['Task 1', 'Task 2', 'Task 3', 'Task 4', 'Task 5'], // Example task labels
-    values: [5, 3, 8, 2, 7], // Example values corresponding to each task
+    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'], // Example labels for the line chart
+    values: [10, 30, 40, 20, 50], // Example completion percentage values
   };
 
   // Function to update dashboard data
@@ -29,8 +29,8 @@ const DashboardPage = () => {
         <h2>Good Morning, {username}!</h2>
         <p><em>Success is not the key to happiness. Happiness is the key to success.</em></p>
         
-        {/* BarChart placed under the quote */}
-        <BarChart progressData={progressData} /> {/* Render BarChart with progressData */}
+        {/* Render LineChart with progressData */}
+        <LineChart progressData={progressData} />
       </div>
 
       <div className="right-section">
