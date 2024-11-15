@@ -1,7 +1,7 @@
 /* Styling for the header (nav bar) */
 .header {
-  background-color: #f9f9f9; /* Very dark green background */
-  padding: 1rem 3rem;  /* Adjust padding for more space around */
+  background-color: #f9f9f9; /* Light background color */
+  padding: 0.05rem 1rem;  /* Reduced padding for a thinner bar */
   display: flex;
   justify-content: space-between; /* Logo on the left, links centered */
   align-items: center;
@@ -12,25 +12,25 @@
 }
 
 .logo {
-  width: 178px;  /* Large logo size */
+  width: 140px;  /* Smaller logo size */
   height: auto;
-  margin-right: 50px; /* Space between the logo and the navigation links */
+  margin-right: 30px; /* Space between the logo and the navigation links */
 }
 
 .nav {
   display: flex;
-  gap: 2rem;  /* Space between the links */
+  gap: 1.5rem;  /* Reduced space between the links */
   flex-grow: 1; /* Allow nav to take available space */
   justify-content: center; /* Center the nav links */
 }
 
 .nav-link {
-  color: #ff8c00;
+  color: #d3571b;
   text-decoration: none;
-  font-size: 1.5rem;  /* Increased font size for better readability */
+  font-size: 1.2rem;  /* Decreased font size for a less bulky nav */
   font-weight: bolder;  /* Bold font for better prominence */
 }
 
 .nav-link:hover {
-  color: #ffc107; /* Change color on hover */
+  color: #ff9c07; /* Change color on hover */
 }
