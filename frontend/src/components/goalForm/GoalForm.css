@@ -1,0 +1,47 @@
+.goal-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.goal-form h3 {
+  color: #47663B; /* Deep green for the title */
+  margin-bottom: 15px;
+}
+
+.goal-form input,
+.goal-form select,
+.goal-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #47663B;
+  background-color: #fff;
+}
+
+.goal-form input:focus,
+.goal-form select:focus,
+.goal-form textarea:focus {
+  border-color: #d3571b; /* Primary orange focus */
+  outline: none;
+}
+
+.goal-form button {
+  background-color: #d3571b; /* Primary orange for button */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.goal-form button:hover {
+  background-color: #ee9e1c; /* Lighter orange for hover effect */
+}

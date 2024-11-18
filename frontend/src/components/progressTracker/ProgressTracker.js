@@ -1,19 +1,15 @@
-// src/todo/TaskAnalytics.js
 import React from 'react';
+import './ProgressTracker.css';
 
-const TaskAnalytics = ({ tasks }) => {
-  const totalTasks = tasks.length;
-  const completedTasks = tasks.filter(task => task.status === 'finished').length;
-  const pendingTasks = tasks.filter(task => task.status === 'pending').length;
-
+const ProgressTracker = ({ progress }) => {
   return (
-    <div className="task-analytics">
-      <h3>Task Analytics</h3>
-      <p>Total Tasks: {totalTasks}</p>
-      <p>Completed Tasks: {completedTasks}</p>
-      <p>Pending Tasks: {pendingTasks}</p>
+    <div className="progress-tracker">
+      <h4>Progress: {progress}%</h4>
+      <div className="progress-bar">
+        <div className="progress" style={{ width: `${progress}%` }}></div>
+      </div>
     </div>
   );
 };
 
-export default TaskAnalytics;
+export default ProgressTracker;

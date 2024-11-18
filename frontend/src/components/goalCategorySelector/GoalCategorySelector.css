@@ -1,0 +1,45 @@
+.goal-category-selector {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.goal-category-selector h3 {
+  color: #47663B; /* Deep green for the title */
+  margin-bottom: 15px;
+}
+
+.goal-category-selector select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #47663B;
+  margin-top: 10px;
+}
+
+.goal-category-selector select:focus {
+  border-color: #d3571b; /* Primary orange focus for select input */
+  outline: none;
+}
+
+.goal-category-selector button {
+  background-color: #d3571b; /* Primary orange for button */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.goal-category-selector button:hover {
+  background-color: #ee9e1c; /* Lighter orange for hover effect */
+}
+

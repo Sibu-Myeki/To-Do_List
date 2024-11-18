@@ -1,26 +1,23 @@
-import React from 'react'; // Import React
-import './App.css'; // Import main CSS file
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import routing components
-import Home from './pages/home/Home'; // Import Home component
-import Dashboard from './pages/dashboardPage/DashboardPage'; // Import Dashboard component
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // For routing
+import Home from './pages/home/Home'; // Home page
+import Signup from './components/signup/Signup'; // Signup page
+import DashboardPage from './pages/dashboardPage/DashboardPage'; // Dashboard page
 import Header from './components/header/Header'; // Import Header component
-import Signup from './components/signup/Signup'; // Import Signup component
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} /> {/* Home route */}
-          <Route path="/dashboard" element={<Dashboard />} /> {/* Dashboard route */}
-          <Route path="/signup" element={<Signup />} /> {/* Signup route */}
-          {/* Add your blogs route here if needed */}
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      {/* Display the Header (Navbar) on all pages */}
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />  {/* Home page route */}
+        <Route path="/signup" element={<Signup />} />  {/* Signup page route */}
+        <Route path="/dashboard" element={<DashboardPage />} />  {/* Dashboard page route */}
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
-

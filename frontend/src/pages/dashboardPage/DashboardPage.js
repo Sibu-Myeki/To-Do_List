@@ -1,162 +1,81 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import GoalCategorySelector from '../../components/goalCategorySelector/GoalCategorySelector';
+import GoalForm from '../../components/goalForm/GoalForm';
+import PredefinedGoals from '../../components/predefinedGoals/PredefinedGoals';
+import ProgressTracker from '../../components/ProgressTracker/ProgressTracker';
+import './DashboardPage.css';
 
-const Dashboard = () => {
-  const [goal, setGoal] = useState({
-    type: '',
-    targetAmount: 0,
-    unit: '',
-    startDate: '',
-    dueDate: '',
-    frequency: 'daily', // Can be 'daily', 'weekly', 'monthly'
-  });
+const DashboardPage = () => {
+  const [category, setCategory] = useState('');
+  const [goal, setGoal] = useState(null); // The current goal selected or created by the user
+  const [progress, setProgress] = useState(0); // Progress state for tracking the goal's completion
+  const [username, setUsername] = useState("User"); // Placeholder for user's name
 
-  const [tasks, setTasks] = useState([]);
-  const [completedTasks, setCompletedTasks] = useState(0);
-  const [progress, setProgress] = useState(0);
-
-  const handleGoalSubmit = () => {
-    const totalPeriods = calculateTotalPeriods(goal.startDate, goal.dueDate, goal.frequency);
-    const generatedTasks = generateTasks(goal.targetAmount, totalPeriods);
-    setTasks(generatedTasks);
-    setCompletedTasks(0);
-    setProgress(0);
-  };
-
-  const calculateTotalPeriods = (startDate, dueDate, frequency) => {
-    const start = new Date(startDate);
-    const end = new Date(dueDate);
-    const difference = end - start;
-    
-    switch (frequency) {
-      case 'weekly':
-        return Math.ceil(difference / (1000 * 3600 * 24 * 7));
-      case 'monthly':
-        return Math.ceil(difference / (1000 * 3600 * 24 * 30));
-      default:
-        // Default to daily
-        return Math.ceil(difference / (1000 * 3600 * 24)) + 1;
+  // This effect updates progress dynamically when a new goal is selected or modified
+  useEffect(() => {
+    if (goal) {
+      const totalTasks = goal.tasks.length; // Assuming 'goal.tasks' is an array of tasks for the goal
+      const completedTasks = goal.tasks.filter(task => task.completed).length; // Count completed tasks
+      setProgress((completedTasks / totalTasks) * 100); // Calculate progress percentage
     }
+  }, [goal]);
+
+  // Handle category selection (Resets goal to null when category changes)
+  const handleCategorySelect = (selectedCategory) => {
+    setCategory(selectedCategory);
+    setGoal(null); // Reset goal selection when category changes
   };
 
-  const generateTasks = (targetAmount, periods) => {
-    const amountPerPeriod = Math.floor(targetAmount / periods);
-    const remainder = targetAmount % periods; // Distribute any remaining amount
-    const taskList = [];
-
-    for (let period = 0; period < periods; period++) {
-      const amount = amountPerPeriod + (period < remainder ? 1 : 0); // Distribute remainder across initial periods
-      taskList.push({
-        id: `Period-${period + 1}`,
-        task: `Task for ${goal.frequency === 'daily' ? `Day ${period + 1}` : goal.frequency === 'weekly' ? `Week ${period + 1}` : `Month ${period + 1}`}`,
-        amount: amount,
-        unit: goal.unit,
-        completed: false,
-      });
-    }
-    return taskList;
-  };
-
-  const handleTaskCompletion = (taskId) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === taskId ? { ...task, completed: true } : task
-    );
-    setTasks(updatedTasks);
-    const newCompletedTasks = completedTasks + 1;
-    setCompletedTasks(newCompletedTasks);
-    updateProgress(newCompletedTasks, tasks.length);
-  };
-
-  const updateProgress = (completed, total) => {
-    const percentage = (completed / total) * 100;
-    setProgress(percentage);
+  // Handle goal selection (Could be a predefined or custom goal)
+  const handleGoalSelect = (selectedGoal) => {
+    setGoal(selectedGoal);
+    setProgress(10); // Example of hardcoded initial progress for a selected goal
   };
 
   return (
-    <div className="dashboard">
-      <div className="goal-overview">
-        <h2>Set Your Goal</h2>
-        <div>
-          <label>Goal Type:</label>
-          <input
-            type="text"
-            placeholder="e.g., Read, Weight Loss, Job Search"
-            value={goal.type}
-            onChange={(e) => setGoal({ ...goal, type: e.target.value })}
-          />
-        </div>
-        <div>
-          <label>Target Amount:</label>
-          <input
-            type="number"
-            value={goal.targetAmount}
-            onChange={(e) => setGoal({ ...goal, targetAmount: parseInt(e.target.value) })}
-            placeholder="e.g., 20 chapters, 25 kg, 100 applications"
-          />
-        </div>
-        <div>
-          <label>Unit:</label>
-          <input
-            type="text"
-            placeholder="e.g., pages, kg, sessions"
-            value={goal.unit}
-            onChange={(e) => setGoal({ ...goal, unit: e.target.value })}
-          />
-        </div>
-        <div>
-          <label>Start Date:</label>
-          <input
-            type="date"
-            value={goal.startDate}
-            onChange={(e) => setGoal({ ...goal, startDate: e.target.value })}
-          />
-        </div>
-        <div>
-          <label>Due Date:</label>
-          <input
-            type="date"
-            value={goal.dueDate}
-            onChange={(e) => setGoal({ ...goal, dueDate: e.target.value })}
-          />
-        </div>
-        <div>
-          <label>Frequency:</label>
-          <select
-            value={goal.frequency}
-            onChange={(e) => setGoal({ ...goal, frequency: e.target.value })}
-          >
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-          </select>
-        </div>
-        <button onClick={handleGoalSubmit}>Save Goal</button>
-      </div>
+    <div className="dashboard-page">
+      <h1 className="dashboard-title">Welcome to Your Dashboard, {username}!</h1>
 
-      <div className="progress-container">
-        <h3>Progress towards your goal: {goal.type}</h3>
-        <div className="progress-bar">
-          <div className="progress" style={{ width: `${progress}%` }}></div>
-        </div>
-        <span>{Math.round(progress)}% Complete</span>
-      </div>
-
-      <div className="task-list">
-        <h3>Tasks</h3>
-        {tasks.map((task) => (
-          <div key={task.id} className="task-item">
-            <p>{task.task} - {task.amount} {task.unit}</p>
-            <button
-              onClick={() => handleTaskCompletion(task.id)}
-              disabled={task.completed}
-              className={task.completed ? 'completed' : ''}
-            >
-              {task.completed ? 'Completed' : 'Mark as Completed'}
-            </button>
+      {/* Split Layout: Left Section (Motivation & Progress) & Right Section (Goal Setting) */}
+      <div className="dashboard-layout">
+        
+        {/* Left Section: Motivation and Progress Tracker */}
+        <div className="left-section">
+          {/* Personalized Greeting */}
+          <div className="motivation-box">
+            <h2>You're Doing Great, {username}!</h2>
+            <p>Stay focused and keep pushing towards your goal!</p>
+            <p>Remember, progress is progress, no matter how small!</p>
           </div>
-        ))}
+
+          {/* Display Goal Summary and Progress Tracker if a goal is selected */}
+          {goal && (
+            <div className="goal-summary">
+              <h3>Your Goal: {goal.name}</h3> {/* Assuming goal has a 'name' property */}
+              <p>You're making progress toward your goal! Keep going!</p>
+              <ProgressTracker progress={progress} />
+            </div>
+          )}
+        </div>
+
+        {/* Right Section: Goal Setting */}
+        <div className="right-section">
+          <h2>Select or Create a Goal</h2>
+          
+          {/* Goal Category Selector */}
+          <GoalCategorySelector onCategorySelect={handleCategorySelect} />
+
+          {/* Show Goal Form and Predefined Goals only after a category is selected */}
+          {category && (
+            <>
+              <PredefinedGoals category={category} onSelectGoal={handleGoalSelect} />
+              <GoalForm category={category} />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

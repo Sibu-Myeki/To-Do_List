@@ -1,39 +1,109 @@
-.dashboard-container {
-  display: flex; /* Use Flexbox for layout */
-  justify-content: space-between; /* Space between left and right sections */
-  padding: 20px; /* Add some padding around the container */
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f4f4f4; /* Light gray background for a clean look */
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #1F4529; /* Deep green for title */
+}
+
+.dashboard-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.left-section, .right-section {
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .left-section {
-  flex: 1; /* Take up 1 part of the space */
-  margin-right: 20px; /* Add space between the sections */
-  background-color: #f0f0f0; /* Optional: Add a background color */
-  padding: 20px; /* Add some padding */
-  border-radius: 8px; /* Optional: Rounded corners */
+  background-color: #fff; /* White background for simplicity */
 }
 
 .right-section {
-  flex: 1; /* Take up 1 part of the space */
-  background-color: #ffffff; /* Optional: Background color for the ToDo section */
-  padding: 20px; /* Add some padding */
-  border-radius: 8px; /* Optional: Rounded corners */
+  background-color: #fff; /* White background for simplicity */
+  display: flex;
+  flex-direction: column;
 }
 
-.quote-section,
-.daily-goal,
-.quick-stats,
-.upcoming-tasks,
-.progress,
-.fun-fact {
-  margin-bottom: 20px; /* Space between sections */
-  background: #fff; /* White background for each section */
-  padding: 10px; /* Inner padding */
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+.motivation-box {
+  background-color: #d3571b; /* Warm orange for motivation box */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.motivation-box h2 {
+  font-size: 1.3em;
+  color: #fff; /* White text for readability */
+}
+
+.motivation-box p {
+  font-size: 1em;
+  color: #fff; /* White text for readability */
+}
+
+.goal-summary {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.goal-summary h3 {
+  font-size: 1.5em;
+  color: #1F4529; /* Deep green for goal title */
+}
+
+.goal-summary p {
+  font-size: 1.1em;
+  color: #47663B; /* Darker green for text */
+}
+
+button {
+  background-color: #acd309; /* Bright green for buttons */
+  color: #fff; /* White text on button */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #97a325; /* Muted green on hover */
 }
 
 .progress-bar {
-  height: 10px; /* Height of the progress bar */
-  background-color: #4caf50; /* Green color for progress */
-  border-radius: 5px; /* Rounded edges */
+  width: 100%;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  width: 0; /* This will be dynamically set based on progress */
+  background-color: #acd309; /* Bright green for progress */
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+h2, h3 {
+  color: #1F4529; /* Deep green for headings */
+}
+
+p {
+  color: #47663B; /* Darker green for body text */
 }
